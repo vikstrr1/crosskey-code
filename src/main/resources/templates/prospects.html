@@ -1,0 +1,96 @@
+<!-- src/main/resources/templates/results.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--link rel="stylesheet" href="/css/custom.css"-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculation Results</title>
+    <style>
+        body {
+            padding-left: 15px; /* Adjust the value as needed */
+        }
+    </style>
+</head>
+<body>
+    <div th:include="navbar :: navbar"></div>
+    <h1>Mortgage Calculation Prospects</h1>
+    
+    <!-- Form for adding a new prospect -->
+
+    <table border="1">
+        <tr>
+            <th>Customer Name</th>
+            <th>Loan Amount</th>
+            <th>Yearly Interest Rate</th>
+            <th>Loan Term (Years)</th>
+        </tr>
+        <!-- Loop through prospects and display each row -->
+        <tr th:each="prospect : ${prospects}">
+            <td th:text="${prospect.customerName}"></td>
+            <td th:text="${prospect.loanAmount}"></td>
+            <td th:text="${prospect.yearlyInterestRate}"></td>
+            <td th:text="${prospect.loanTermInYears}"></td>
+        </tr>
+    </table>
+    <br>
+    <button onclick="openProspectModal()">Add New Prospect</button>
+
+    <!-- The Modal -->
+    <div id="prospectModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Prospect</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeProspectModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/mortgage/addProspect" method="post">
+                        <div class="form-group">
+                            <label for="customerName">Customer Name:</label>
+                            <input type="text" class="form-control" id="customerName" name="customerName" required>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="loanAmount">Loan Amount:</label>
+                            <input type="number" class="form-control" id="loanAmount" name="loanAmount" required>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="yearlyInterestRate">Yearly Interest Rate:</label>
+                            <input type="number" class="form-control" id="yearlyInterestRate" name="yearlyInterestRate" required>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="loanTermInYears">Loan Term (Years):</label>
+                            <input type="number" class="form-control" id="loanTermInYears" name="loanTermInYears" required>
+                        </div>
+    
+                        <button type="submit" class="btn btn-primary">Add Prospect</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- JavaScript to control the modal -->
+    <script>
+        function openProspectModal() {
+            document.getElementById("prospectModal").style.display = "block";
+        }
+    
+        function closeProspectModal() {
+            document.getElementById("prospectModal").style.display = "none";
+        }
+    </script>
+    
+
+</body>
+</html>
+
