@@ -29,12 +29,12 @@ public class MortgageController {
     @GetMapping("/")
     public String redirectToMortgage() {
         // Redirect to "/mortgage/"
-        return "redirect:/mortgage/";
+        return "redirect:/mortgage/calculate";
     }
 
     @GetMapping("/mortgage/")
     public String home() {
-        return "home";
+        return "redirect:/mortgage/calculate";
     }
     @GetMapping("/mortgage/calculate")
     public String calculateMonthlyPayments(Model model) {

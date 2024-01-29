@@ -14,7 +14,7 @@ Before you start, ensure you have the following installed:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/mortgage-calculator.git
+    git clone https://github.com/vikstrr1/mortgage-calculator.git
     ```
 
 2. Navigate to the project directory:
