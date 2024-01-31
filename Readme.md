@@ -9,12 +9,12 @@ Before you start, ensure you have the following installed:
 - Docker: [Get Docker](https://docs.docker.com/get-docker/)
 - Maven: [Download Maven](https://maven.apache.org/download.cgi)
 
-## Build and Run
+## Build and Run (Main Branch)
 
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/vikstrr1/mortgage-calculator.git
+    git clone https://github.com/vikstrr1/crosskey-code.git
     ```
 
 2. Navigate to the project directory:
@@ -26,13 +26,33 @@ Before you start, ensure you have the following installed:
 3. Build and run the Docker image:
 
     ```bash
-    docker-compose up
+    docker build -t mortgage-calculator .
+    docker run -p 8080:8080 mortgage-calculator
     ```
-
 
 4. The application will be accessible at [http://localhost:8080](http://localhost:8080).
 
+## Build and Run with Docker Compose (Dev Branch)
 
+1. Switch to the `dev` branch:
+
+    ```bash
+    git checkout dev
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd mortgage-calculator
+    ```
+
+3. Build and run the Docker Compose environment:
+
+    ```bash
+    docker-compose up
+    ```
+
+4. The application will be accessible at [http://localhost:8080](http://localhost:8080).
 
 ## Usage
 
@@ -47,7 +67,6 @@ Before you start, ensure you have the following installed:
 ## Unit Tests
 
 This application includes unit tests to ensure the correctness of the Mortgage Calculator service. To run the unit tests, follow these steps:
-
 
 1. Open a terminal and navigate to the project's root directory:
 
@@ -65,13 +84,5 @@ This application includes unit tests to ensure the correctness of the Mortgage C
 
 ## Dockerized Application Testing
 
-If you've built and run the application using Docker, you can perform manual testing as follows:
-
-1. Access the Mortgage Calculator application at [http://localhost:8080](http://localhost:8080) in your browser.
-
-2. Use the application to perform calculations and add new prospects.
-
-3. Verify the functionality and ensure that the calculated monthly payments are accurate.
-
-
+If you've built and run the application using Docker or Docker Compose, you can perform manual testing as explained in the respective sections.
 
