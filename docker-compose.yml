@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: prospects
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: 1234
+
+  spring-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/prospects
+      DB_USERNAME: test
+      DB_PASSWORD: 1234

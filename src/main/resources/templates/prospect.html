@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prospect Details</title>
+    <style>
+        body {
+            padding-left: 15px; /* Adjust the value as needed */
+        }
+    </style>
+</head>
+<body>
+    <div th:include="navbar :: navbar"></div>
+    <h1>Prospect Details</h1>
+
+    <div>
+        <strong>Customer Name:</strong>
+        <span th:text="${prospect.customerName}" id="customerName"></span>
+    </div>
+
+    <div>
+        <strong>Loan Amount:</strong>
+        <span th:text="${prospect.loanAmount}" id="loanAmount"></span>
+    </div>
+
+    <div>
+        <strong>Yearly Interest Rate:</strong>
+        <span th:text="${prospect.yearlyInterestRate}" id="yearlyInterestRate"></span>
+    </div>
+
+    <div>
+        <strong>Loan Term (Years):</strong>
+        <span th:text="${prospect.loanTermInYears}" id="loanTermInYears"></span>
+    </div>
+
+    <!-- Add additional fields as needed -->
+
+    <a href="/mortgage/prospects">Back to Prospects</a>
+
+</body>
+</html>
+

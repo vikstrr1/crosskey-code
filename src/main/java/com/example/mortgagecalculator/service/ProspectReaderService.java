@@ -1,17 +1,32 @@
 package com.example.mortgagecalculator.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.mortgagecalculator.model.Prospect;
+import com.example.mortgagecalculator.repository.ProspectRepository;
 
 import java.io.*;
 import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
+import javax.annotation.PostConstruct;
 
 @Service
 public class ProspectReaderService {
 
     private static final String FILE_PATH = "/app/prospects.txt";
+
+    @Autowired
+    private ProspectRepository prospectRepository;
+
+        @PostConstruct
+    public void readProspectsOnStartup() {
+        List<Prospect> prospects = readProspectsFromFile();
+        saveProspectsToDatabase(prospects);
+    }
+
 
     public List<Prospect> readProspectsFromFile() {
         List<Prospect> prospects = new ArrayList<>();
@@ -58,11 +73,25 @@ public class ProspectReaderService {
                         prospect.getLoanAmount(),
                         prospect.getYearlyInterestRate(),
                         prospect.getLoanTermInYears()));
+                prospectRepository.save(prospect);
             }
         } catch (IOException e) {
             e.printStackTrace();
             // Handle the exception as needed (e.g., log the error, show a message to the user)
         }
+    }
+
+    public void saveProspectsToDatabase(List<Prospect> newProspects) {
+        prospectRepository.saveAll(newProspects);
+    }
+
+    public List<Prospect> readProspectsFromDatabase() {
+        return prospectRepository.findAll();
+    }
+
+    public Optional<Prospect> readProspectById(String id) {
+        Long Id = Long.parseUnsignedLong(id);
+        return prospectRepository.findById(Id);
     }
 
     private String removeQuotes(String input) {

@@ -1,46 +1,54 @@
 package com.example.mortgagecalculator.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "prospects")
 public class Prospect {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String customerName;
     private double loanAmount;
     private double yearlyInterestRate;
     private int loanTermInYears;
 
     // getters and setters
-    public void setCustomerName(String name){
-         this.customerName = name;
+    // ...
+    public Long getId() {
+        return id;
     }
 
-    public void setLoanAmount(double loanAmount){
-        this.loanAmount = loanAmount;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setYearlyInterestRate(double yearlyInterestRate){
-        this.yearlyInterestRate = yearlyInterestRate;
-    }
-
-    public void setLoanTermInYears(Integer loanTermInYears){
-        this.loanTermInYears = loanTermInYears;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     public double getLoanAmount() {
-        // implement the logic to return the loan amount
         return loanAmount;
     }
 
+    public void setLoanAmount(double loanAmount) {
+        this.loanAmount = loanAmount;
+    }
+
     public double getYearlyInterestRate() {
-        // implement the logic to return the yearly interest rate
         return yearlyInterestRate;
     }
 
+    public void setYearlyInterestRate(double yearlyInterestRate) {
+        this.yearlyInterestRate = yearlyInterestRate;
+    }
+
     public int getLoanTermInYears() {
-        // implement the logic to return the loan term in years
         return loanTermInYears;
     }
 
-    public String getCustomerName(){
-
-       return customerName; 
+    public void setLoanTermInYears(int loanTermInYears) {
+        this.loanTermInYears = loanTermInYears;
     }
-
 }

@@ -8,7 +8,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mortgage Calculation Results</title>
+    <title>Prospects</title>
     <style>
         body {
             padding-left: 15px; /* Adjust the value as needed */
@@ -17,7 +17,7 @@
 </head>
 <body>
     <div th:include="navbar :: navbar"></div>
-    <h1>Mortgage Calculation Prospects</h1>
+    <h1>Prospects</h1>
     
     <!-- Form for adding a new prospect -->
 
@@ -30,7 +30,7 @@
         </tr>
         <!-- Loop through prospects and display each row -->
         <tr th:each="prospect : ${prospects}">
-            <td th:text="${prospect.customerName}"></td>
+            <td><a th:href="@{/mortgage/prospects/{id}(id=${prospect.id})}" th:text="${prospect.customerName}"></a></td>
             <td th:text="${prospect.loanAmount}"></td>
             <td th:text="${prospect.yearlyInterestRate}"></td>
             <td th:text="${prospect.loanTermInYears}"></td>
@@ -58,17 +58,17 @@
     
                         <div class="form-group">
                             <label for="loanAmount">Loan Amount:</label>
-                            <input type="number" class="form-control" id="loanAmount" name="loanAmount" required>
+                            <input type="float" class="form-control" id="loanAmount" name="loanAmount" required min="0">
                         </div>
     
                         <div class="form-group">
                             <label for="yearlyInterestRate">Yearly Interest Rate:</label>
-                            <input type="number" class="form-control" id="yearlyInterestRate" name="yearlyInterestRate" required>
+                            <input type="float" class="form-control" id="yearlyInterestRate" name="yearlyInterestRate" required min="0">
                         </div>
     
                         <div class="form-group">
                             <label for="loanTermInYears">Loan Term (Years):</label>
-                            <input type="number" class="form-control" id="loanTermInYears" name="loanTermInYears" required>
+                            <input type="number" class="form-control" id="loanTermInYears" name="loanTermInYears" required min="1">
                         </div>
     
                         <button type="submit" >Add Prospect</button>
@@ -89,8 +89,6 @@
             document.getElementById("prospectModal").style.display = "none";
         }
     </script>
-    
-
 </body>
 </html>
 
