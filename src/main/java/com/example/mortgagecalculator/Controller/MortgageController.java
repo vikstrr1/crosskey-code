@@ -49,7 +49,7 @@ public class MortgageController {
         // Return the name of the HTML template (calculate.html)
         return "calculate";
     }
-
+/* 
     @GetMapping("/mortgage/prospects")
     public String showResults(Model model) {
         List<Prospect> prospects = prospectReaderService.readProspectsFromDatabase();
@@ -59,9 +59,9 @@ public class MortgageController {
 
         // Return the name of the HTML template (results.html)
         return "prospects";
-    }
+    }*/
 
-    @GetMapping("/mortgage/prospects/{id}")
+    @GetMapping("/mortgage/prospect/{id}")
     public String viewProspect(@PathVariable String id, Model model) {
         // Find the prospect by ID
         Optional<Prospect> optionalProspect = prospectReaderService.readProspectById(id);
@@ -75,8 +75,15 @@ public class MortgageController {
             return "prospect";
         } else {
             // Redirect to the prospects page if the prospect is not found
-            return "redirect:/mortgage/prospects";
+            return "redirect:/mortgage/calculate";
         }
+    }
+
+    @PostMapping("/mortgage/prospect/{id}")
+    public String deleteProspect(@PathVariable String id){
+        prospectReaderService.deleteProspectById(id);
+
+        return "redirect:/mortgage/prospects";
     }
 
     @PostMapping("/mortgage/addProspect")

@@ -2,7 +2,10 @@ package com.example.mortgagecalculator.service;
 
 import org.junit.jupiter.api.Test;
 
+import com.example.mortgagecalculator.model.Prospect;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class MortgageCalculatorServiceTest {
 
@@ -37,6 +40,43 @@ class MortgageCalculatorServiceTest {
 
         // Add more test cases as needed
     }
+
+
+    @Test
+    void createProspect() {
+        Prospect prospect = new Prospect();
+        assertNotNull(prospect);
+    }
+
+    @Test
+    void setAndGetCustomerName() {
+        Prospect prospect = new Prospect();
+        prospect.setCustomerName("John Doe");
+        assertEquals("John Doe", prospect.getCustomerName());
+    }
+
+    @Test
+    void setAndGetLoanAmount() {
+        Prospect prospect = new Prospect();
+        prospect.setLoanAmount(120000);
+        assertEquals(120000, prospect.getLoanAmount());
+    }
+
+    @Test
+    void setAndGetYearlyInterestRate() {
+        Prospect prospect = new Prospect();
+        prospect.setYearlyInterestRate(4.8);
+        assertEquals(4.8, prospect.getYearlyInterestRate(), 0.01);
+    }
+
+    @Test
+    void setAndGetLoanTermInYears() {
+        Prospect prospect = new Prospect();
+        prospect.setLoanTermInYears(15);
+        assertEquals(15, prospect.getLoanTermInYears());
+    }
+
+    
 }
 
 

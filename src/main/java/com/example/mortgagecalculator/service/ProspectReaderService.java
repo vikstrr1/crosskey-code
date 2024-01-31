@@ -94,6 +94,11 @@ public class ProspectReaderService {
         return prospectRepository.findById(Id);
     }
 
+    public void deleteProspectById(String id) {
+        Long Id = Long.parseUnsignedLong(id);
+        prospectRepository.deleteById(Id);
+    }
+
     private String removeQuotes(String input) {
         return input.replaceAll("^\"|\"$", "").replaceAll(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)", " ");
     }

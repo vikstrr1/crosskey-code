@@ -14,8 +14,7 @@ public class Prospect {
     private double yearlyInterestRate;
     private int loanTermInYears;
 
-    // getters and setters
-    // ...
+  
     public Long getId() {
         return id;
     }

@@ -23,19 +23,14 @@ Before you start, ensure you have the following installed:
     cd mortgage-calculator
     ```
 
-3. Build the Docker image:
+3. Build and run the Docker image:
 
     ```bash
-    docker build -t mortgage-calculator .
+    docker-compose up
     ```
 
-4. Run the Docker container:
 
-    ```bash
-    docker run -p 8080:8080 mortgage-calculator
-    ```
-
-5. The application will be accessible at [http://localhost:8080](http://localhost:8080).
+4. The application will be accessible at [http://localhost:8080](http://localhost:8080).
 
 
 

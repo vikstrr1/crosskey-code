@@ -17,7 +17,7 @@ public class MortgageCalculatorService {
             double monthlyPayment = calculateMonthlyPayment(
                     prospect.getLoanAmount(), prospect.getYearlyInterestRate(), prospect.getLoanTermInYears());
         
-                    String result = String.format("Prospect %d: <a href='/mortgage/prospects/%d'>%s</a> wants to borrow %.2f € for a period of %d years and pay %.2f € each month",
+                    String result = String.format("Prospect %d: <a href='/mortgage/prospect/%d'>%s</a> wants to borrow %.2f € for a period of %d years and pay %.2f € each month",
                     prospect.getId(), prospect.getId(), prospect.getCustomerName(), prospect.getLoanAmount(), prospect.getLoanTermInYears(), monthlyPayment);
 
             results.add(result);
