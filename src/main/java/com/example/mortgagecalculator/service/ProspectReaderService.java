@@ -28,11 +28,11 @@ public class ProspectReaderService {
 
                 String[] parts = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
                 if (parts.length == 4) {
-                    Prospect prospect = new Prospect();
-                    prospect.setCustomerName(removeQuotes(parts[0].trim()));
+                    Prospect prospect = new Prospect(removeQuotes(parts[0].trim()),Double.parseDouble(parts[1].trim()),Double.parseDouble(parts[2].trim()), Integer.parseInt(parts[3].trim()));
+                    /*prospect.setCustomerName(removeQuotes(parts[0].trim()));
                     prospect.setLoanAmount(Double.parseDouble(parts[1].trim()));
                     prospect.setYearlyInterestRate(Double.parseDouble(parts[2].trim()));
-                    prospect.setLoanTermInYears(Integer.parseInt(parts[3].trim()));
+                    prospect.setLoanTermInYears(Integer.parseInt(parts[3].trim()));*/
                     prospects.add(prospect);
                 }
             }

@@ -6,6 +6,13 @@ public class Prospect {
     private double yearlyInterestRate;
     private int loanTermInYears;
 
+    public Prospect(String customerName, double loanAmount, double yearlyInterestRate, int loanTermInYears) {
+        this.customerName = customerName;
+        this.loanAmount = loanAmount;
+        this.yearlyInterestRate = yearlyInterestRate;
+        this.loanTermInYears = loanTermInYears;
+    }
+
     // getters and setters
     public void setCustomerName(String name){
          this.customerName = name;

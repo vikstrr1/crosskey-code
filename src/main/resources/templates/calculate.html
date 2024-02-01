@@ -23,5 +23,86 @@
         </span>
     </div>
 
+    <br>
+    <button onclick="openProspectModal()">Add New Prospect</button>
+    
+
+    <!-- The Modal -->
+    <div id="prospectModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Prospect</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeProspectModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/mortgage/addProspect" method="post" onsubmit="return validateForm()">
+                        <div class="form-group">
+                            <label for="customerName">Customer Name:</label>
+                            <input type="text" class="form-control" id="customerName" name="customerName" required pattern="[A-Za-z ]+">
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="loanAmount">Loan Amount:</label>
+                            <input type="float" class="form-control" id="loanAmount" name="loanAmount" required min="0">
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="yearlyInterestRate">Yearly Interest Rate (%):</label>
+                            <input type="float" class="form-control" id="yearlyInterestRate" name="yearlyInterestRate" required min="0">
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="loanTermInYears">Loan Term (Years):</label>
+                            <input type="number" class="form-control" id="loanTermInYears" name="loanTermInYears" required min="1">
+                        </div>
+    
+                        <button type="submit">Add Prospect</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- JavaScript to control the modal -->
+    <script>
+         function openProspectModal() {
+            document.getElementById("prospectModal").style.display = "block";
+        }
+    
+        function closeProspectModal() {
+            document.getElementById("prospectModal").style.display = "none";
+        }
+
+        function validateForm() {
+            var customerName = document.getElementById('customerName').value;
+            var loanAmount = document.getElementById('loanAmount').value;
+            var yearlyInterestRate = document.getElementById('yearlyInterestRate').value;
+            var loanTermInYears = document.getElementById('loanTermInYears').value;
+
+            // Check if customerName contains only letters
+            if (!/^[A-Za-z ]+$/.test(customerName)) {
+                alert('Customer Name should contain only letters.');
+                return false;
+            }
+
+            if (yearlyInterestRate.includes('%')) {
+            alert('Yearly Interest Rate should not contain the percentage symbol (%).');
+            return false;
+            }
+
+            // Check if loanAmount, yearlyInterestRate, and loanTermInYears are non-negative numbers
+            if (loanAmount < 0 || yearlyInterestRate < 0 || loanTermInYears < 0) {
+                alert('Loan Amount, Yearly Interest Rate, and Loan Term should be non-negative numbers.');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
 </body>
 </html>

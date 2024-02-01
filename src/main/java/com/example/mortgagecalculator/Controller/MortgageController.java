@@ -32,6 +32,12 @@ public class MortgageController {
         return "redirect:/mortgage/calculate";
     }
 
+    @GetMapping("/mortgage")
+    public String redirectmortgage() {
+        // Redirect to "/mortgage/"
+        return "redirect:/mortgage/calculate";
+    }
+
     @GetMapping("/mortgage/")
     public String home() {
         return "redirect:/mortgage/calculate";
@@ -49,7 +55,7 @@ public class MortgageController {
     }
 
    
-
+/* 
     @GetMapping("/mortgage/prospects")
     public String showResults(Model model) {
         List<Prospect> prospects = prospectReaderService.readProspectsFromFile();
@@ -60,7 +66,7 @@ public class MortgageController {
         // Return the name of the HTML template (results.html)
         
         return "prospects";
-    }
+    }*/
 
     @PostMapping("/mortgage/addProspect")
     public String addProspect(Prospect newProspect, Model model) {
@@ -83,6 +89,6 @@ public class MortgageController {
         model.addAttribute("prospects", prospects);
     
         // Redirect to the prospects page to display the updated list
-        return "redirect:/mortgage/prospects";
+        return "redirect:/mortgage/calculate";
     }
 }
