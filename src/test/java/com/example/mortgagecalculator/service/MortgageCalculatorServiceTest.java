@@ -105,8 +105,9 @@ class MortgageCalculatorServiceTest {
 
         // Expected results based on the provided prospects
         List<String> expectedResults = new ArrayList<>();
-        expectedResults.add("Prospect 1: John Doe wants to borrow 100000.00 € for a period of 10 years and pay 1060.66 € each month");
-        expectedResults.add("Prospect 2: Jane Smith wants to borrow 150000.00 € for a period of 15 years and pay 1265.79 € each month");
+        expectedResults.add("Prospect 1: John Doe wants to borrow 100000,00 € for a period of 10 years and pay 1060,66 € each month");
+        expectedResults.add("Prospect 2: Jane Smith wants to borrow 150000,00 € for a period of 15 years and pay 1265,79 € each month");
+
 
         // Call the method to be tested
         List<String> actualResults = service.calculateMonthlyPayments(prospects);
