@@ -49,7 +49,7 @@
                         </div>
     
                         <div class="form-group">
-                            <label for="yearlyInterestRate">Yearly Interest Rate:</label>
+                            <label for="yearlyInterestRate">Yearly Interest Rate (%):</label>
                             <input type="float" class="form-control" id="yearlyInterestRate" name="yearlyInterestRate" required min="0">
                         </div>
     
@@ -86,6 +86,11 @@
             if (!/^[A-Za-z ]+$/.test(customerName)) {
                 alert('Customer Name should contain only letters.');
                 return false;
+            }
+
+            if (yearlyInterestRate.includes('%')) {
+            alert('Yearly Interest Rate should not contain the percentage symbol (%).');
+            return false;
             }
 
             // Check if loanAmount, yearlyInterestRate, and loanTermInYears are non-negative numbers

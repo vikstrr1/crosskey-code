@@ -33,6 +33,11 @@ public class MortgageController {
         return "redirect:/mortgage/calculate";
     }
 
+    @GetMapping("/mortgage")
+    public String redirecthome() {
+        return "redirect:/mortgage/calculate";
+    }
+
     @GetMapping("/mortgage/")
     public String home() {
         return "redirect:/mortgage/calculate";
@@ -83,7 +88,7 @@ public class MortgageController {
     public String deleteProspect(@PathVariable String id){
         prospectReaderService.deleteProspectById(id);
 
-        return "redirect:/mortgage/prospects";
+        return "redirect:/mortgage/calculate";
     }
 
     @PostMapping("/mortgage/addProspect")
