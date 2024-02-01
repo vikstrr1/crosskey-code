@@ -34,6 +34,7 @@ Before you start, ensure you have the following installed:
 ## Usage
 
 - Visit [http://localhost:8080](http://localhost:8080) in your browser to use the Mortgage Calculator.
+- This application is not delopyed on any cloud!
 
 ## Configuration
 
