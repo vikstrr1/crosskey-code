@@ -32,31 +32,14 @@ Before you start, ensure you have the following installed:
 
 4. The application will be accessible at [http://localhost:8080](http://localhost:8080).
 
-## Build and Run with Docker Compose (Dev Branch)
 
-1. Switch to the `dev` branch:
-
-    ```bash
-    git checkout dev
-    ```
-
-2. Navigate to the project directory:
-
-    ```bash
-    cd mortgage-calculator
-    ```
-
-3. Build and run the Docker Compose environment:
-
-    ```bash
-    docker-compose up
-    ```
-
-4. The application will be accessible at [http://localhost:8080](http://localhost:8080).
 
 ## Usage
 
 - Visit [http://localhost:8080](http://localhost:8080) in your browser to use the Mortgage Calculator.
+
+or
+- Visit [https://moneybinc-44a1ee9a39cc.herokuapp.com/mortgage/calculate](https://moneybinc-44a1ee9a39cc.herokuapp.com/mortgage/calculate) also published on cloud service
 
 ## Configuration
 
@@ -81,6 +64,30 @@ This application includes unit tests to ensure the correctness of the Mortgage C
     ```
 
    This will run all the tests in the project and provide a summary of the results.
+
+
+
+## Build and Run with Docker Compose (Dev Branch)
+
+1. Switch to the `dev` branch:
+
+    ```bash
+    git checkout dev
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd mortgage-calculator
+    ```
+
+3. Build and run the Docker Compose environment:
+
+    ```bash
+    docker-compose up
+    ```
+
+4. The application will be accessible at [http://localhost:8080](http://localhost:8080).
 
 ## Dockerized Application Testing
 
