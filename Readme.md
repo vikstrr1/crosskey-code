@@ -9,29 +9,6 @@ Before you start, ensure you have the following installed:
 - Docker: [Get Docker](https://docs.docker.com/get-docker/)
 - Maven: [Download Maven](https://maven.apache.org/download.cgi)
 
-## Build and Run (Main Branch)
-
-1. Clone the repository:
-
-    ```bash
-    git clone https://github.com/vikstrr1/crosskey-code.git
-    ```
-
-2. Navigate to the project directory:
-
-    ```bash
-    cd mortgage-calculator
-    ```
-
-3. Build and run the Docker image:
-
-    ```bash
-    docker build -t mortgage-calculator .
-    docker run -p 8080:8080 mortgage-calculator
-    ```
-
-4. The application will be accessible at [http://localhost:8080](http://localhost:8080).
-
 ## Build and Run with Docker Compose (Dev Branch)
 
 1. Switch to the `dev` branch:
@@ -81,6 +58,31 @@ This application includes unit tests to ensure the correctness of the Mortgage C
     ```
 
    This will run all the tests in the project and provide a summary of the results.
+
+## Build and Run (Main Branch)
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/vikstrr1/crosskey-code.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd mortgage-calculator
+    ```
+
+3. Build and run the Docker image:
+
+    ```bash
+    docker build -t mortgage-calculator .
+    docker run -p 8080:8080 mortgage-calculator
+    ```
+
+4. The application will be accessible at [http://localhost:8080](http://localhost:8080).
+
+5. Visit [https://moneybinc-44a1ee9a39cc.herokuapp.com/mortgage/calculate](https://moneybinc-44a1ee9a39cc.herokuapp.com/mortgage/calculate) also published on cloud service
 
 ## Dockerized Application Testing
 
