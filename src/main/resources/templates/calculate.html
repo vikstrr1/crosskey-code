@@ -41,7 +41,7 @@
                     <form action="/mortgage/addProspect" method="post" onsubmit="return validateForm()">
                         <div class="form-group">
                             <label for="customerName">Customer Name:</label>
-                            <input type="text" class="form-control" id="customerName" name="customerName" required pattern="[A-Za-zåäöÅÄÖ -]+">
+                            <input type="text" class="form-control" id="customerName" name="customerName" required pattern="[A-Za-zåäöÅÄÖéÉ -]+">
                         </div>
     
                         <div class="form-group">
@@ -84,7 +84,7 @@
             var loanTermInYears = document.getElementById('loanTermInYears').value;
 
             // Check if customerName contains only letters
-            if (!/^[A-Za-zåäöÅÄÖ -]+$/.test(customerName)) {
+            if (!/^[A-Za-zåäöÅÄÖéÉ -]+$/.test(customerName)) {
                 alert('Customer Name should contain only letters.');
                 return false;
             }
