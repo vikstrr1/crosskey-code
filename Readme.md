@@ -9,6 +9,12 @@ Before you start, ensure you have the following installed:
 - Docker: [Get Docker](https://docs.docker.com/get-docker/)
 - Maven: [Download Maven](https://maven.apache.org/download.cgi)
 
+## Build and Run maven
+    ```bash
+    mvn clean install
+    mvn spring-boot:run
+    ```
+
 ## Build and Run (Main Branch)
 
 1. Clone the repository:
